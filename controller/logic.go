@@ -17,3 +17,14 @@ func ListHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 	return
 }
+
+func ListPatient(c *gin.Context) {
+	//call pugin
+	data, er := model.GetPatient()
+	if er != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+	return
+}

@@ -21,9 +21,9 @@ func BuildDBConfig() *DBConfig {
 	get := DBConfig{
 		Host:     "localhost",
 		Port:     3306,
-		User:     "root",
+		User:     "sqluser",
 		DBName:   "covid",
-		Password: "kanticha954",
+		Password: "password",
 	}
 	return &get
 

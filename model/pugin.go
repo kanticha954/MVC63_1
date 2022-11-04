@@ -8,9 +8,20 @@ import (
 
 // (input)(sent input)
 func GetHospital() (hospital Hospital, err error) {
-	if err = configure.DB.Select("Title").
+	if err = configure.DB.Select("*").
 		Table("covid.hospital").
 		Find(&hospital).Error; err != nil {
+		return
+
+	}
+	return
+
+}
+
+func GetPatient() (patient Patient, err error) {
+	if err = configure.DB.Select("HNID,Firstname,Lastname").
+		Table("covid.patient").
+		Find(&patient).Error; err != nil {
 		return
 
 	}

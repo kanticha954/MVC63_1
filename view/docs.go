@@ -54,6 +54,38 @@ const docTemplate = `{
           }
         }
       }
+    },
+    "/listPatient": {
+      "get": {
+        "tags": [
+          "patient"
+        ],
+        "summary": "Get Patient Information",
+        "operationId": "getPatient",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/patient"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/patient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -61,17 +93,37 @@ const docTemplate = `{
       "hospital": {
         "type": "object",
         "properties": {
-          "HID": {
+          "hospital_id": {
             "type": "string",
             "example": "0001"
           },
-          "Title": {
+          "title": {
             "type": "string",
             "example": "name hospital"
           }
         },
         "xml": {
           "name": "hospital"
+        }
+      },
+      "patient": {
+        "type": "object",
+        "properties": {
+          "HNID": {
+            "type": "string",
+            "example": "0001"
+          },
+          "Firstname": {
+            "type": "string",
+            "example": "Firstname"
+          },
+          "Lastname": {
+            "type": "string",
+            "example": "Lastname"
+          }
+        },
+        "xml": {
+          "name": "patient"
         }
     }
   }

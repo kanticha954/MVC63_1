@@ -2,10 +2,10 @@ package model
 
 //get datatype
 type Patient struct {
-	PatientId     string `json:"hnid"`
-	FirstName     string `json:"firstname"`
-	LastName      string `json:"lastname"`
-	HospitalIdRef string `json:"hid"`
+	HNID      string `json:"HNID"`
+	FirstName string `json:"Firstname"`
+	LastName  string `json:"Lastname"`
+	Hid_FK    string `json:"HID"`
 }
 
 type Hospital struct {
