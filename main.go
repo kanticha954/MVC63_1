@@ -22,8 +22,8 @@ func main() {
 	//database configure
 	configure.DB, err = gorm.Open("mysql", configure.DbURL(configure.BuildDBConfig()))
 	if err != nil {
-		//fmt.Println("Status:", err)
-		fmt.Println("CONNECTED ERROR")
+		fmt.Println("Status:", err)
+		//fmt.Println("CONNECTED ERROR")
 	}
 	defer configure.DB.Close()
 	configure.DB.AutoMigrate(&model.Hospital{}) //create to student
