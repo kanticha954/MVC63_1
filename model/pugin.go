@@ -7,8 +7,8 @@ import (
 )
 
 // (input)(sent input)
-func GetHospital() (hospital Hospital, err error) {
-	if err = configure.DB.Select("*").
+func GetHospital() (hospital []Hospital, err error) {
+	if err = configure.DB.Select("hid,title").
 		Table("covid.hospital").
 		Find(&hospital).Error; err != nil {
 		return
@@ -18,8 +18,8 @@ func GetHospital() (hospital Hospital, err error) {
 
 }
 
-func GetPatient() (patient Patient, err error) {
-	if err = configure.DB.Select("HNID,Firstname,Lastname").
+func GetPatient() (patient []Patient, err error) {
+	if err = configure.DB.Select("hnid,firstname,lastname").
 		Table("covid.patient").
 		Find(&patient).Error; err != nil {
 		return

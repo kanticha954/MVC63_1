@@ -2,13 +2,18 @@ package model
 
 //get datatype
 type Patient struct {
-	HNID      string `json:"HNID"`
-	FirstName string `json:"Firstname"`
-	LastName  string `json:"Lastname"`
-	Hid_FK    string `json:"HID"`
+	Hnid      string `json:"hnid"`
+	FirstName string `json:"firstname"`
+	LastName  string `json:"lastname"`
+	Hid       string `json:"hid"`
 }
 
 type Hospital struct {
-	Hid   string `json:"HID"`
-	Title string `json:"Title"`
+	Hid   string `json:"hid"`
+	Title string `json:"title"`
+}
+
+type Patient_status struct {
+	Hnid        string `json:"hnid"`
+	CovidStatus string `json:"covid_status"`
 }

@@ -17,7 +17,7 @@ var err error
 
 func main() {
 	//swagger
-	fmt.Println("Run Swagger : http://localhost:8080/swagger/index.html%22")
+	fmt.Println("Run Swagger : http://localhost:8080/swagger/index.html")
 	fmt.Println()
 	//database configure
 	configure.DB, err = gorm.Open("mysql", configure.DbURL(configure.BuildDBConfig()))

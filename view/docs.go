@@ -109,15 +109,15 @@ const docTemplate = `{
       "patient": {
         "type": "object",
         "properties": {
-          "HNID": {
+          "hnid": {
             "type": "string",
             "example": "0001"
           },
-          "Firstname": {
+          "firstname": {
             "type": "string",
             "example": "Firstname"
           },
-          "Lastname": {
+          "lastname": {
             "type": "string",
             "example": "Lastname"
           }
@@ -136,7 +136,7 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:8080",
 	BasePath:         "/",
 	Schemes:          []string{},
-	Title:            "Party's Applicant",
+	Title:            "Covid Applicant",
 	Description:      "MVC Example 01",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
