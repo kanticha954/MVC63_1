@@ -168,10 +168,6 @@ const docTemplate = `{
           "CountPatient": {
             "type": "integer",
             "example": 1
-          },
-          "HNID": {
-            "type": "string",
-            "example": "0001"
           }
         },
         "xml": {
