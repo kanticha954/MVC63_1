@@ -5,12 +5,10 @@ import (
 
 	"MVC63_1/configure"
 	route "MVC63_1/controller"
+
 	"MVC63_1/model"
 
 	"github.com/jinzhu/gorm"
-	//"github.com/zxc10110/mvc_/Models"
-	//"github.com/zxc10110/mvc_12/Config"
-	//Routes "github.com/zxc10110/mvc_12/Controllers"
 )
 
 var err error
