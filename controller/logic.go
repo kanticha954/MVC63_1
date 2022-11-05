@@ -28,3 +28,14 @@ func ListPatient(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 	return
 }
+
+func CountPatient(c *gin.Context) {
+	//call pugin
+	data, er := model.CountPatient()
+	if er != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+	return
+}

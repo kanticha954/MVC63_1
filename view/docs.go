@@ -8,7 +8,7 @@ const docTemplate = `{
     "title": "Golang MVC Structure",
     "version": "1.0.11"
   },
-    "tags": [
+  "tags": [
     {
       "name": "hospital",
       "description": "Access to Hospital Information",
@@ -20,6 +20,10 @@ const docTemplate = `{
     {
       "name": "patient",
       "description": "About Patient"
+    },
+    {
+      "name": "count",
+      "description": "Count Patient"
     }
   ],
   "paths": {
@@ -86,6 +90,38 @@ const docTemplate = `{
           }
         }
       }
+    },
+    "/countPatient": {
+      "get": {
+        "tags": [
+          "count"
+        ],
+        "summary": "Count Patient Positive",
+        "operationId": "countPatient",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/count"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/count"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -109,21 +145,37 @@ const docTemplate = `{
       "patient": {
         "type": "object",
         "properties": {
-          "hnid": {
+          "HNID": {
             "type": "string",
             "example": "0001"
           },
-          "firstname": {
+          "Firstname": {
             "type": "string",
             "example": "Firstname"
           },
-          "lastname": {
+          "Lastname": {
             "type": "string",
             "example": "Lastname"
           }
         },
         "xml": {
           "name": "patient"
+        }
+      },
+      "count": {
+        "type": "object",
+        "properties": {
+          "CountPatient": {
+            "type": "integer",
+            "example": 1
+          },
+          "HNID": {
+            "type": "string",
+            "example": "0001"
+          }
+        },
+        "xml": {
+          "name": "count"
         }
     }
   }
