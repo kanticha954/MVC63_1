@@ -26,7 +26,7 @@ const docTemplate = `{
       "description": "Count Patient"
     }
   ],
-  "paths": {
+    "paths": {
     "/listHospital": {
       "get": {
         "tags": [
@@ -154,6 +154,38 @@ const docTemplate = `{
           }
         }
       }
+    },
+    "/countPerHospital": {
+      "get": {
+        "tags": [
+          "hospital"
+        ],
+        "summary": "Count Patient Positive Per Hospital",
+        "operationId": "countHospital",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/countHospital"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/countHospital"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -228,6 +260,26 @@ const docTemplate = `{
         },
         "xml": {
           "name": "patientStatus"
+        }
+      },
+      "countHospital": {
+        "type": "object",
+        "properties": {
+          "HID": {
+            "type": "string",
+            "example": "0001"
+          },
+          "Title": {
+            "type": "string",
+            "example": "Hospital name"
+          },
+          "CountPatient": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "countHospital"
         }
     }
   }

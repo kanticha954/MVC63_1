@@ -54,7 +54,7 @@ func CountPatient() (count []Count_Patient, err error) {
 
 }
 
-func CountPerHospital() (count []Count_Patient, err error) {
+func CountPerHospital() (count []Count_hopital, err error) {
 	if err = configure.DB.Select("h.hid, title, COUNT(h.hid) as count_hospital").
 		Table("covid.patient_covid_status as s, covid.hospital as h, covid.patient as p").
 		Where("covid_status = 'Positive' AND p.hnid = s.hnid AND h.hid = p.hid").

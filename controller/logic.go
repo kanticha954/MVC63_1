@@ -53,7 +53,7 @@ func CountPatient(c *gin.Context) {
 
 func CountPerHospital(c *gin.Context) {
 	//call pugin
-	data, er := model.CountPatient()
+	data, er := model.CountPerHospital()
 	if er != nil {
 		return
 	}
