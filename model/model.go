@@ -20,5 +20,13 @@ type Hospital struct {
 
 type Patient_status struct {
 	Hnid        string `json:"hnid"`
+	Firstname   string `json:"firstname"`
+	Lastname    string `json:"lastname"`
 	CovidStatus string `json:"covid_status"`
+}
+
+type Count_hopital struct {
+	Hid           string `json:"hid"`
+	Title         string `json:"title"`
+	CountHospital string `json:"count_hospital"`
 }

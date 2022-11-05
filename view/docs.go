@@ -91,6 +91,38 @@ const docTemplate = `{
         }
       }
     },
+    "/listPatientStatus": {
+      "get": {
+        "tags": [
+          "patient"
+        ],
+        "summary": "Get Patient Positive",
+        "operationId": "getPatientStatus",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/patientStatus"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/patientStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
+    },
     "/countPatient": {
       "get": {
         "tags": [
@@ -172,6 +204,30 @@ const docTemplate = `{
         },
         "xml": {
           "name": "count"
+        }
+      },
+      "patientStatus": {
+        "type": "object",
+        "properties": {
+          "HNID": {
+            "type": "string",
+            "example": "0001"
+          },
+          "Firstname": {
+            "type": "string",
+            "example": "Firstname"
+          },
+          "Lastname": {
+            "type": "string",
+            "example": "Lastname"
+          },
+          "CountStatus": {
+            "type": "string",
+            "example": "Positive/Negative"
+          }
+        },
+        "xml": {
+          "name": "patientStatus"
         }
     }
   }

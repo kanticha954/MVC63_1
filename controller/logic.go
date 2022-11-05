@@ -29,7 +29,29 @@ func ListPatient(c *gin.Context) {
 	return
 }
 
+func ListPatientStatus(c *gin.Context) {
+	//call pugin
+	data, er := model.GetPatientStatus()
+	if er != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+	return
+}
+
 func CountPatient(c *gin.Context) {
+	//call pugin
+	data, er := model.CountPatient()
+	if er != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+	return
+}
+
+func CountPerHospital(c *gin.Context) {
 	//call pugin
 	data, er := model.CountPatient()
 	if er != nil {

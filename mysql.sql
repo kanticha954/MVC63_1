@@ -42,10 +42,30 @@ INSERT INTO COVID.PATIENT(hnid, firstname, lastname, HID) VALUES
 
 ------find patient covid positive
 SELECT PATIENT.hnid, firstname, lastname, hid, PATIENT_COVID_STATUS.covid_status
-FROM COVID.PATIENT_COVID_STATUS , COVID.PATIENT
+FROM COVID.PATIENT_COVID_STATUS CROSS JOIN COVID.PATIENT
 WHERE PATIENT_COVID_STATUS.covid_status = 'Positive'
 AND COVID.PATIENT.hnid = COVID.PATIENT_COVID_STATUS.hnid;
+
+
+SELECT p.hnid, firstname, lastname, hid, s.covid_status
+FROM COVID.PATIENT_COVID_STATUS as s , COVID.PATIENT as p
+WHERE s.covid_status = 'Positive' AND p.hnid = s.hnid
+GROUP BY p.hnid;
+
 
 ------count
 SELECT COUNT(hnid) FROM COVID.PATIENT_COVID_STATUS
 WHERE PATIENT_COVID_STATUS.covid_status = 'Positive';
+
+
+------count per hospital
+SELECT p.hnid, firstname, lastname, s.covid_status, h.hid
+FROM COVID.PATIENT_COVID_STATUS as s , COVID.patient as p, COVID.HOSPITAL as h
+WHERE s.covid_status = 'Positive' AND h.hid = p.hid
+GROUP BY h.hid;
+
+
+SELECT h.hid, title, p.firstname, lastname, COUNT(h.hid)
+FROM COVID.PATIENT_COVID_STATUS as s , COVID.patient as p, COVID.HOSPITAL as h
+WHERE s.covid_status = 'Positive' AND p.hnid = s.hnid AND h.hid = p.hid
+GROUP BY h.hid;
