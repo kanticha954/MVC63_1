@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	//"github.com/kanticha954/MVC63_1/model/model"
 )
 
 func ListHospital(c *gin.Context) {
