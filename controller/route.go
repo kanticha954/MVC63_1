@@ -18,6 +18,7 @@ func SetupRouter() *gin.Engine {
 	r.GET("/listPatientStatus", ListPatientStatus)
 	r.GET("/countPerHospital", CountPerHospital)
 	r.GET("/countPatient", CountPatient)
+	r.GET("/topHospital", ListTopHospital)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	return r

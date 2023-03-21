@@ -61,3 +61,14 @@ func CountPerHospital(c *gin.Context) {
 	c.JSON(http.StatusOK, data)
 	return
 }
+
+func ListTopHospital(c *gin.Context) {
+	//call pugin
+	data, er := model.TopHospital()
+	if er != nil {
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
+	return
+}

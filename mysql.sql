@@ -39,6 +39,19 @@ INSERT INTO COVID.PATIENT(hnid, firstname, lastname, HID) VALUES
 ('0005',  'Gloria', 'Hull', '0003');
 
 
+INSERT INTO COVID.PATIENT_COVID_STATUS(HNID, COVID_STATUS) VALUES
+('0006', 'Positive'),
+('0007', 'Positive'),
+('0008', 'Negative'),
+('0009', 'Positive'),
+('00010', 'Negative');
+
+INSERT INTO COVID.PATIENT(hnid, firstname, lastname, HID) VALUES
+('0006', 'Ayesha', 'Jenkins', '0003'),
+('0007',  'Savannah', 'Mcintosh', '0003'),
+('0008',  'Harley', 'Greene', '0002'),
+('0009',  'Tilly', 'Frazier', '0001'),
+('0010',  'Gloria', 'Hull', '0003');
 
 ------find patient covid positive
 SELECT PATIENT.hnid, firstname, lastname, hid, PATIENT_COVID_STATUS.covid_status
@@ -69,3 +82,12 @@ SELECT h.hid, title, p.firstname, lastname, COUNT(h.hid)
 FROM COVID.PATIENT_COVID_STATUS as s , COVID.patient as p, COVID.HOSPITAL as h
 WHERE s.covid_status = 'Positive' AND p.hnid = s.hnid AND h.hid = p.hid
 GROUP BY h.hid;
+
+
+
+------find top 3
+SELECT h.hid, h.title, COUNT(h.hid)
+FROM COVID.PATIENT_COVID_STATUS as s , COVID.patient as p, COVID.HOSPITAL as h
+WHERE s.covid_status = 'Positive' AND p.hnid = s.hnid AND h.hid = p.hid
+GROUP BY h.hid
+ORDER BY COUNT(h.hid) DESC;

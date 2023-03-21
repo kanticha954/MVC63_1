@@ -186,6 +186,38 @@ const docTemplate = `{
           }
         }
       }
+    },
+    "/topHospital": {
+      "get": {
+        "tags": [
+          "hospital"
+        ],
+        "summary": "Ranking Top Hospital",
+        "operationId": "topHospital",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/countHospital"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/countHospital"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
     }
   },
   "components": {
